@@ -1,0 +1,42 @@
+.home  {
+    &-content {
+        min-height: 200px;
+        background: white;
+        padding: 20px;
+
+        .selection-card {
+            padding: 15px;
+        }
+
+        .footer {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .col{
+            flex-basis: 45%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .app-label {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            width: 100%;
+            border-bottom: 1px solid whitesmoke;
+        }
+    }
+    &-card {
+        .label {
+            padding: 10px 10px;
+        }
+    }
+}

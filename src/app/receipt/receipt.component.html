@@ -1,0 +1,25 @@
+<mat-toolbar color="secondary">Receipt</mat-toolbar>
+<div class="receipt-content">
+    <div class="selection-card" *ngFor="let selection of selections">
+        <mat-card class="receipt-content-card">
+            <div class="row">
+                <div class="col">
+                    <label class="app-label">Food Outlets</label>
+                    <div>
+                        <mat-list role="list">
+                            <mat-list-item *ngFor="let foodOutlet of selection.foodOutlets" role="listitem">{{ foodOutlet.name }}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="app-label">Users</label>
+                    <div>
+                        <mat-list role="list">
+                            <mat-list-item *ngFor="let user of selection.users" role="listitem">{{ user.name }}</mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

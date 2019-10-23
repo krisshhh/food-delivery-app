@@ -1,0 +1,35 @@
+.food-outlet  {
+
+    &-content {
+        min-height: 300px;
+        background: white;
+        padding: 20px;
+    }
+
+    &-form {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    &-form-field {
+        width: 100%;
+        padding: 5px;
+        .label {
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 500;
+        }
+        .control {
+            font-size: 15px;
+        }
+    }
+    &-footer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-top: 15px;
+    }
+}

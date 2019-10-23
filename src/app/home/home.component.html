@@ -1,0 +1,54 @@
+<mat-toolbar color="secondary">Food Delivery</mat-toolbar>
+<div class="home-content">
+    <div class="selection-card" *ngFor="let selection of selections">
+        <mat-card class="home-content-card">
+            <div class="row">
+                <div class="col">
+                    <label class="app-label">Food Outlets</label>
+                    <div>
+                        <mat-chip-list class="chips">
+                            <mat-chip color="primary" [matMenuTriggerFor]="foodOutletMenu"
+                                [matMenuTriggerData]="{ selection: selection, foodOutlets: foodOutlets}">+</mat-chip>
+                            <mat-chip *ngFor="let foodOutlet of selection.foodOutlets"
+                                [removable]="true" (removed)="removeFoodOutlet(selection, foodOutlet)">
+                                {{foodOutlet.name}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="app-label">User</label>
+                    <div>
+                        <mat-chip-list class="chips">
+                            <mat-chip color="primary" [matMenuTriggerFor]="userMenu"
+                                [matMenuTriggerData]="{ selection: selection, users: users}">+</mat-chip>
+                            <mat-chip *ngFor="let user of selection.users" 
+                                [removable]="true" (removed)="removeUser(selection, user)">
+                                {{user.name}}
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+    <div class="footer">
+        <button mat-raised-button (click)="addSelection()" color="secondary">Add</button>
+        <button mat-raised-button [routerLink]="['/receipt']" color="primary">Receipt</button>
+    </div>
+</div>
+
+<mat-menu #userMenu="matMenu" yPosition="below">
+    <ng-template matMenuContent let-selection="selection" let-users="users">
+        <button mat-menu-item *ngFor="let user of users" (click)="addUser(selection, user)">{{ user.name }}</button>
+    </ng-template>
+</mat-menu>
+
+<mat-menu #foodOutletMenu="matMenu" yPosition="below">
+    <ng-template matMenuContent let-selection="selection" let-foodOutlets="foodOutlets">
+        <button mat-menu-item *ngFor="let foodOutlet of foodOutlets"
+            (click)="addFoodOutlet(selection, foodOutlet)">{{ foodOutlet.name }}</button>
+    </ng-template>
+</mat-menu>

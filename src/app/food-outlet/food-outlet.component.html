@@ -1,0 +1,21 @@
+<mat-toolbar color="secondary">Add Food Outlet</mat-toolbar>
+<div class="food-outlet-content">
+    <form class="food-outlet-form" [formGroup]="foodOutletForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="food-outlet-form-field">
+            <mat-label class="label">Name</mat-label>
+            <input class="control" matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="food-outlet-form-field">
+            <mat-label class="label">Contact</mat-label>
+            <input matInput class="control" formControlName="contact">
+        </mat-form-field>
+        <mat-form-field class="food-outlet-form-field">
+            <mat-label class="label">Address</mat-label>
+            <textarea matInput class="control" rows="4" formControlName="address"></textarea>
+        </mat-form-field>
+        <div class="food-outlet-footer">
+            <button mat-raised-button [routerLink]="['/']">Cancel</button>
+            <button mat-raised-button color="primary">Save</button>
+        </div>
+    </form>
+</div>
